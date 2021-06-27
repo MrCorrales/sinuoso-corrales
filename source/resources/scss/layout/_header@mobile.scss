@@ -1,0 +1,30 @@
+@media (max-width: $smartphone) {
+  #Header {
+    --width-logo: #{rem(200px)};
+    --font-size-nav: #{rem(24px)};
+    --padding-h: var(--padding-xs);
+  }
+
+  .header__btn-delivery,
+  .header__link-nav {
+    display: none;
+  }
+
+  .header__btn-sidemenu {
+    display: block;
+    margin-left: 0;
+  }
+
+  .header__btn-sidemenu,
+  .header__btn-reserva {
+    border: 0;
+    .text,
+    .text-hover {
+      display: none;
+    }
+
+    .text-mobile {
+      display: block;
+    }
+  }
+}

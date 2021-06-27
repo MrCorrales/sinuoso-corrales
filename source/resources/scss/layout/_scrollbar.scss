@@ -1,0 +1,31 @@
+#Scrollbar {
+  position: fixed;
+  @include z-index($z-index-progress);
+  width: 20px;
+  height: vh(100);
+  top:0;
+  right: 0;
+  mix-blend-mode: difference;
+
+  .__mobile & {
+    display: none;
+  }
+
+  .track,
+  .thumb {
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 6px;
+    height: 100%;
+  }
+
+  .track {
+    background-color: rgba(255,255,255,0);
+  }
+
+  .thumb {
+    transform-origin: 0 0;
+    background-color: rgba(255,255,255,1);
+  }
+}

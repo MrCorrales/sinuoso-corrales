@@ -1,0 +1,29 @@
+:root {
+  --y-header: 0;
+
+  --padding-xl: #{(120px / 16px) * 1rem};
+  --padding-l: #{(90px / 16px) * 1rem};
+  --padding-m: #{(60px / 16px) * 1rem};
+  --padding-s: #{(30px / 16px) * 1rem};
+  --padding-xs: #{(15px / 16px) * 1rem};
+  --padding-xxs: #{(8px / 16px) * 1rem};
+
+  --stroke: clamp(.5px, #{(2px / 16px) * 1rem}, 1px);
+  --padding-horizontal-default: var(--padding-m);
+
+
+  ///
+  --header-height:#{(98px / 16px) * 1rem};
+  --height-toogle-menu: #{(68px / 16px) * 1rem};
+}
+
+@media (max-width: $smartphone) {
+  :root {
+    --header-height:#{(60px / 16px) * 1rem};
+    --padding-xs: #{(10px / 16px) * 1rem};
+  }
+}
+
+@function vh($size) {
+  @return calc(var(--vh, 1vh) * #{$size});
+}

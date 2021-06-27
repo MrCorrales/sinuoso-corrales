@@ -1,0 +1,40 @@
+#Interface,
+#Scene {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vh;
+  height: 100vw;
+
+  > canvas {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#Scene {
+  @include z-index(1);
+}
+
+#Interface {
+  @include z-index(2);
+}
+
+#Preloader {
+  position: fixed;
+  @include z-index(3);
+  top:0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  background: #0000FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    width: 100%;
+    max-width: 120px;
+    fill: var(--ibaiak-grey);
+  }
+}

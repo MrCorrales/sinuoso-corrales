@@ -1,0 +1,98 @@
+
+// Cookies
+// -------------------------------
+
+
+///VARS
+
+.win-intro {
+  --font-size-title: #{(32px / 16px) * 1em};
+  --font-size-p: #{(18px / 16px) * 1em};
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+
+  font-size: 1.1111vw;
+
+  @include z-index($z-index-win-intro);
+
+  background-color: var(--ibaiak-blue);
+  color: var(--ibaiak-grey);
+
+  &[aria-expanded='false'] {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.win-intro video {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.win-intro__content {
+  position: relative;
+  padding: var(--padding-s);
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto auto 200px;
+
+  svg {
+    grid-column: 1 / 13;
+    grid-row: 1 / 2;
+    fill: currentColor;
+  }
+
+  .title {
+    grid-column: 1 / 6;
+    grid-row: 2 / 3;
+
+    margin: var(--padding-m) 0 .2em;
+
+    @include font-serif(true);
+    font-size: var(--font-size-title);
+    line-height: 1;
+  }
+
+  p {
+    grid-column: 1 / 6;
+    grid-row: 3 / 4;
+
+    margin: 0;
+
+    @include font-serif();
+    font-size: var(--font-size-p);
+  }
+
+  .button-holder {
+    grid-column: 6 / 13;
+    grid-row: 2 / 4;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+
+
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+
+    border: 1px solid var(--ibaiak-grey);
+    @include font-sans(true);
+    line-height: 1;
+
+    background: transparent;
+  }
+}

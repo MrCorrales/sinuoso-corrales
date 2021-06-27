@@ -1,0 +1,10 @@
+<% ratio = ratio ? ratio : "1" %>
+
+<figure class="media-holder">
+    <img data-item-load
+         width="<%= width %>"
+         height="<%= height %>"
+         data-src="<%= image %>"
+         data-maxratio="<%= ratio %>"
+         src="<%= @cdn_url %>/assets/images/blank.png"/>
+</figure>

@@ -1,0 +1,85 @@
+:root {
+  --font-sans: 'Space Mono Regular', sans-serif;
+  --font-serif: 'Roslindale', serif;
+  --font-sans-bold: 'Space Mono Bold', sans-serif;
+
+  //USADAS
+  --font-size-xxlarge: #{(360px / 16px) * 1rem};
+  --font-size-xlarge: #{(140px / 16px) * 1rem};
+  --font-size-large: #{(80px / 16px) * 1rem};
+  --font-size-mid: #{(40px / 16px) * 1rem};
+  --font-size-base: #{(18px / 16px) * 1rem};
+  --font-size-small: #{(15px / 16px) * 1rem};
+  --font-size-xsmall: #{(12px / 16px) * 1rem};
+
+  --line-height-sans: 1;
+  --line-height-sans-light: 1;
+  --line-height-serif: #{17/16};
+  --line-height-serif-bold: #{17/15};
+
+  //font-size: 1.1111vw;
+  //font-size: 1em;
+
+  @media (max-width: $smartphone) {
+    --font-size-large: #{(32px / 16px) * 1rem};
+    --font-size-xxlarge: #{(140px / 16px) * 1rem};
+
+    font-size: 16px;
+  }
+
+  @media (max-width: $smartphoneSmall) {
+    font-size: 14px;
+  }
+
+  @media (max-width: $desktop) {
+    font-size: 1.1111vw;
+  }
+
+  @media (min-width: $largeScreen) {
+    //font-size: 1.1111vw;
+  }
+}
+
+@mixin font-sans($hasCustomLineHeight:false) {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  @if $hasCustomLineHeight == false { line-height: var(--line-height-sans);  }
+}
+@mixin font-sans-bold($hasCustomLineHeight:false) {
+  font-family: var(--font-sans-bold);
+  font-weight: 700;
+  @if $hasCustomLineHeight == false { line-height: var(--line-height-sans);  }
+}
+@mixin font-serif($hasCustomLineHeight:false) {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  @if $hasCustomLineHeight == false { line-height: var(--line-height-serif);  }
+}
+
+@mixin p-serif-default() {
+  @include font-serif();
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  strong, bold {
+    font-weight: 700;
+  }
+}
+@mixin p-sans-default() {
+  @include font-sans();
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  strong, bold {
+    font-family: var(--font-sans-bold);
+    font-weight: 700;
+  }
+}

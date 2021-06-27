@@ -1,0 +1,41 @@
+.default__form__radio-holder {
+  display: flex;
+  --height: var(--font-size-input);
+  height: var(--height);
+  border-bottom: 1px solid var(--color);
+  overflow: hidden;
+}
+//CHECK
+.default__form__radio {
+  position: relative;
+  height: var(--height);
+  border-right: 1px solid var(--color);
+
+  label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: var(--size);
+    padding: 0 var(--padding-xs);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-label);
+    line-height: var(--line-height-sans);
+    font-weight: 400;
+
+    cursor: pointer;
+
+    &:hover {
+
+    }
+  }
+
+  input[type=radio],
+  input[type=checkbox] {
+    position: absolute;
+    visibility: hidden;
+    &:checked + label {
+      color: var(--bg);
+      background-color: var(--color);
+    }
+  }
+}

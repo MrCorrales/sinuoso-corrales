@@ -1,0 +1,21 @@
+.map-river {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    stroke: #1C1C1C;
+    stroke-width: 40px;
+    fill: none;
+
+    .progress {
+      stroke: var(--ibaiak-blue);
+    }
+  }
+}

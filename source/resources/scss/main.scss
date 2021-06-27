@@ -1,0 +1,6 @@
+//sass --watch app/resources/scss/main.scss:public/resources/css/main.min.css
+//sass --watch app/resources/scss/main.scss:public/resources/css/main.min.css  --style compressed
+
+@import "utils/utils";
+
+@import "general";

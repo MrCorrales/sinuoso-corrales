@@ -1,0 +1,58 @@
+$padding-sizes-mobile: 20px;
+$padding-sizes-tablet: 60px;
+$padding-sizes: 100px;
+
+$container-xs: 320px;
+$container-s: 480px;
+$container-m: 680px;
+$container-l: 900px;
+$container-xl: 1000px;
+$container-max: 1200px;
+
+$containers-sizes: (
+        -xsmall: $container-xs,
+        -small: $container-s,
+        -mid: $container-m,
+        -large: $container-l,
+        -xlarge: $container-xl,
+        -max:$container-max,
+        );
+
+.container-full {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.container-full-padding {
+  @extend .container-full;
+  padding-left: $padding-sizes;
+  padding-right: $padding-sizes;
+  //box-sizing: initial;
+}
+
+@each $size-name, $size in $containers-sizes {
+  .container#{$size-name} {
+    @extend .container-full;
+    max-width: #{$size};
+  }
+  .container#{$size-name}-padding {
+    @extend .container-full-padding;
+    max-width: #{$size + $padding-sizes*2};
+  }
+}
+
+
+@media (max-width: $tabletPortrait) {
+  .container-full-padding{
+    padding-left: $padding-sizes-tablet;
+    padding-right: $padding-sizes-tablet;
+  }
+}
+@media (max-width: $smartphone) {
+  .container-full-padding{
+    padding-left: $padding-sizes-mobile;
+    padding-right: $padding-sizes-mobile;
+  }
+}
+

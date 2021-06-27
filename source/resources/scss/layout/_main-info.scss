@@ -1,0 +1,116 @@
+.main-info {
+  --font-size: var(--font-size-base);
+  --max-width: #{(250px / 16px) * 1rem};
+
+  @include z-index($z-index-info);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: var(--padding-s);
+
+  @include font-sans(true);
+  font-size: var(--font-size);
+  line-height: 1;
+  color: var(--ibaiak-grey);
+  text-transform: uppercase;
+
+  pointer-events: none;
+
+  //BG
+  &:before {
+    @include pseudo-element-absolute();
+    top:0;
+    left:0;
+    width: 500px;
+    height: 100%;
+    //background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+  }
+}
+
+.main-info__ul {
+  position: relative;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  > li {
+    height: 1em;
+
+    &:last-of-type {
+      margin-top: 1em;
+      margin-bottom: 1.1em;
+    }
+  }
+}
+
+.main-info__mapa {
+  position: relative;
+  width: var(--max-width);
+  padding: 10px;
+
+  > .holder {
+    position: relative;
+    @include aspect-ratio(1,1);
+    width: 100%;
+  }
+
+  > .frame {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+
+    stroke-width: 1px;
+    stroke: currentColor;
+    fill: none;
+
+    .deco {
+      stroke: var(--ibaiak-blue);
+    }
+  }
+
+  svg {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+
+    stroke-width: 1px;
+    stroke: currentColor;
+    fill: none;
+
+    .deco {
+      stroke: var(--ibaiak-blue);
+    }
+
+    .progress {
+      stroke: var(--ibaiak-blue);
+    }
+  }
+}
+
+.main-info__localidad {
+  position: relative;
+  margin: 1em 0;
+  height: 1em;
+
+  &:not(:empty) {
+    &:before {
+      content: '-> ';
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.--stroke {
+  color: transparent;
+  -webkit-text-stroke:1px var(--color);
+}
+.--stroke-double {
+  color: transparent;
+  -webkit-text-stroke:2px var(--color);
+
+  @media (max-width: $smartphone) {
+    -webkit-text-stroke:1px var(--color);
+  }
+}

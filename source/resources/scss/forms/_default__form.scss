@@ -1,0 +1,172 @@
+.default__form {
+  //--font-size-input: #{rem(50px)};
+  --font-size: var(--font-size-input);
+  --font-size-label: var(--font-size-input);
+  --color-submit-hover: var(--color-error);
+  --bg-submit-hover: var(--black);
+  --width-submit: 100%;
+
+  color: var(--color);
+}
+
+//SUBMIT
+.default__form [type="submit"] {}
+
+.default__form__group {
+  display: flex;
+
+  > div {
+    flex: 0 0 50%;
+
+    &:first-of-type {
+      border-right: 1px solid var(--color);
+    }
+  }
+}
+
+@media (max-width: $smartphone) {
+  .default__form__group {
+    display: block;
+
+    > div {
+      width: 100%;
+
+      &:first-of-type {
+        border-right: 0;
+      }
+    }
+  }
+}
+
+//TEXTFIELD
+.default__form__textarea,
+.default__form__textfield {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid var(--color);
+
+  &.error,
+  &.--error,
+  &.--success {
+    &:before {
+      @include pseudo-element-absolute();
+
+      bottom: calc(var(--font-size) * .1);;
+      right: 1em;
+      width: calc(var(--font-size) * .8);
+      height: calc(var(--font-size) * .8);
+
+      font-family: var(--font-sans);
+      font-weight: 500;
+      text-align: center;
+      line-height: var(--font-size);
+
+      border-radius: 50%;
+    }
+  }
+
+  &.error,
+  &.--error {
+    &:before {
+      background-color: var(--color-error);
+    }
+  }
+
+  &.--success {
+    &:before {
+      background-color: var(--color-sucess);
+    }
+  }
+}
+
+//TIPO FECHA
+.default__form__textfield.--date {
+  svg {
+    position: absolute;
+    bottom: calc(var(--font-size) * .1);
+    right: 1em;
+    width: calc(var(--font-size) * .8);
+    height: calc(var(--font-size) * .8);
+
+    stroke: var(--white);
+    stroke-width: 1px;
+    pointer-events: none;
+  }
+
+  input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    width:20%;
+    opacity: 0;
+  }
+}
+
+.default__form__label,
+.default__form__textarea label,
+.default__form__textfield label {
+  flex: 0 0 auto;
+  @include font-sans();
+  font-size: var(--font-size-label);
+  display: inline-block;
+  text-transform: uppercase;
+  border-right: 1px solid var(--color);
+  padding: .0em var(--padding-xs);
+}
+
+.default__form__textfield input {
+  flex: 1 0 100px;
+
+  border: 0;
+  background: transparent;
+  height: var(--font-size-input);
+  padding: .0em var(--padding-xs);
+
+  @include font-sans();
+  font-size: var(--font-size);
+
+  &::placeholder {
+    color: currentColor;
+    text-transform: uppercase;
+    opacity: .2;
+  }
+
+  &[type="date"] {
+    padding-right: 0;
+  }
+
+  @include accessible() {
+    &:focus {
+      background: var(--white);
+      color: var(--black);
+    }
+  }
+}
+
+.default__form__textarea {
+  height: auto;
+}
+.default__form__textarea textarea {
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  flex: 1 0 100px;
+  background: transparent;
+
+  padding: .0em var(--padding-xs);
+
+  @include font-sans();
+  font-size: var(--font-size);
+
+
+
+  &::placeholder {
+    color: currentColor;
+    text-transform: uppercase;
+    opacity: .2;
+  }
+}
+
+.default__form__legal-holder {
+  padding: var(--padding-xs);
+}

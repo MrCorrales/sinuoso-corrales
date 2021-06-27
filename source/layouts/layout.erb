@@ -1,0 +1,108 @@
+<!doctype html>
+
+<% isDebug = false %>
+<% fileMainJS = "app_1624819418500.js" %>
+<% fileMainCSS = "main_1624819418497.css" %>
+<% filePreloadJS = "preload_1624819418502.js" %>
+<% @cdn_url = "." %>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title><%= current_page.data.title %></title>
+
+    <link rel="canonical" href="<%= current_page.data.url %>"/>
+
+    <meta name="description" content="<%= current_page.data.description %>">
+    <meta property="og:description" content="<%= current_page.data.description %>">
+    <meta property="og:image" content="https://<%= current_page.data.url_root %>/assets/social/facebook-1200x630.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="<%= current_page.data.title %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://<%= current_page.data.url %>">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="<%= current_page.data.description %>">
+    <meta name="twitter:image" content="https://<%= current_page.data.url_root %>/assets/social/twitter-600x330.jpg">
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:title" content="<%= current_page.data.title %>">
+    <meta name="twitter:url" content="https://<%= current_page.data.url %>">
+
+    <!-- Opciones Movil -->
+    <meta name="viewport"                               content="width=device-width, initial-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable"           content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style"  content="black-translucent"/>
+    <meta name="format-detection"                       content="telephone=no"/>
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= @cdn_url %>/assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= @cdn_url %>/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= @cdn_url %>/assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="<%= @cdn_url %>/assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="<%= @cdn_url %>/assets/icons/safari-pinned-tab.svg" color="#ff00ff">
+    <link rel="shortcut icon" href="<%= @cdn_url %>/assets/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="<%= @cdn_url %>/assets/icons/browserconfig.xml">
+    <meta name="theme-color" content="#000000">
+    <!-- Resources -->
+    <link rel="preconnect" href="<%= @cdn_url %>"/>
+    <link rel="preconnect" href="https://s3-eu-west-1.amazonaws.com"/>
+    <link rel="preconnect" href="https://www.google-analytics.com"/>
+
+    <!-- Google Tag Manager -->
+
+    <!-- End Google Tag Manager -->
+
+    <% if isDebug == true %>
+    <!-- DEV -->
+    <link id="__appCSS" rel="preload" href="<%= @cdn_url %>/resources/css/main.css" as="style"/>
+    <link id="__appJS" rel="preload" href="<%= @cdn_url %>/resources/js/main.js" as="script"/>
+    <% else %>
+    <!-- DIST -->
+    <link id="__appCSS" rel="preload" href="<%= @cdn_url %>/resources/dist/<%= fileMainCSS %>" as="style"/>
+    <link id="__appJS" rel="preload" href="<%= @cdn_url %>/resources/dist/<%= fileMainJS %>" as="script"/>
+    <% end -%>
+
+    <link rel="preload" href="<%= @cdn_url %>/assets/fonts/Roslindale-DisplayCondensedMedium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="<%= @cdn_url %>/assets/fonts/space-mono-v6-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="<%= @cdn_url %>/assets/fonts/space-mono-v6-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" type="text/css" href="<%= @cdn_url %>/assets/fonts/fonts.css">
+
+    <link rel="stylesheet" type="text/css" href="<%= @cdn_url %>/resources/vendor/dat.gui/dat.gui.css">
+
+    <style>
+      body{opacity:0;}
+      .win-message[aria-expanded='false'] {
+        visibility: hidden;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body data-cdn="<%= @cdn_url %>" class="<%= isDebug ? '__isDebug' : '' %>">
+    <div id="Scene"></div>
+    <div id="Interface"></div>
+    <%= partial "layouts/loader" %>
+
+    <!-- JS -->
+    <script src="<%= @cdn_url %>/resources/vendor/dat.gui/dat.gui.min.js"></script>
+    <% if isDebug == true %>
+    <script src="/resources/js/libs-preload.js"></script>
+    <script src="/resources/js/libs.js"></script>
+
+    <script src="/resources/js/Canvas/ThreeStage.js"></script>
+    <script src="/resources/js/Components/RiverLines.js"></script>
+
+    <script src="<%= @cdn_url %>/resources/js/Shaders/vertex/VertexBasic.js"></script>
+    <script src="<%= @cdn_url %>/resources/js/Shaders/fragment/FragmentSineLines.js"></script>
+    <script src="<%= @cdn_url %>/resources/js/3D/Material.js"></script>
+    <script src="<%= @cdn_url %>/resources/js/3D/Geometry.js"></script>
+
+
+    <script src="/resources/js/DataHolder.js"></script>
+    <script src="/resources/js/preload.js"></script>
+    <% else %>
+    <script src="./resources/dist/<%= filePreloadJS %>"></script>
+    <% end -%>
+  </body>
+</html>

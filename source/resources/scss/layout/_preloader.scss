@@ -1,0 +1,18 @@
+#Preloader {
+  position: fixed;
+  @include z-index($z-index-loader);
+  top:0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  background: var(--ibaiak-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    width: 100%;
+    max-width: 120px;
+    fill: var(--ibaiak-grey);
+  }
+}

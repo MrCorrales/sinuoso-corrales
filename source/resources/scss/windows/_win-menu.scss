@@ -1,0 +1,128 @@
+.win-menu {
+  --font-size: #{(52px / 16px) * 1rem};
+  --font-size-small: var(--font-size-base);
+  --padding-h: var(--padding-m);
+  --max-width: 31400px;
+  --height-button: #{(82px / 16px) * 1rem};
+
+  @include z-index($z-index-win-menu);
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  justify-content: flex-start;
+
+  background-color: var(--ibaiak-blue);
+  color: var(--ibaiak-grey);
+}
+
+.win-menu__filtros {
+  padding: var(--header-height) var(--padding-h) var(--padding-h);
+  background-color: var(--ibaiak-blue);
+
+  .holder {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .select-with-arrow {
+    --color: currentColor;
+    --color-hover: currentColor;
+    --border-color: transparent;
+    --bg-hover: transparent;
+    font-size: var(--font-size);
+    margin: 0;
+
+    width: auto;
+  }
+}
+
+.win-menu__rivers {
+  padding: 0 var(--padding-h) var(--padding-h);
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  .holder {
+    max-width: var(--max-width);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--padding-s);
+    /*align-items: flex-start;
+    justify-content: flex-start;*/
+
+    > div {
+      flex: 0 0 33.333%;
+    }
+  }
+}
+
+.win-menu__rivers__ul {
+  padding-bottom: var(--padding-m);
+
+  .title {
+    @include font-sans();
+    font-size: var(--font-size-small);
+    padding: var(--padding-s) 0 10px;
+    margin-bottom: var(--padding-m);
+    position: sticky;
+    top:0;
+    background-color: var(--ibaiak-blue);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    gap: .2em;
+
+    @include font-serif();
+    font-size: var(--font-size);
+  }
+
+  button {
+    position: relative;
+    @include basic-a();
+    background: transparent;
+    text-transform: uppercase;
+    padding: .08em 0;
+    border-bottom: 2px solid transparent;
+    text-align: left;
+
+    &:after {
+      @include pseudo-element-absolute();
+      top: 0;
+      left: -.7em;
+      width: calc(100% + 1.4em);
+      height: 100%;
+      border: 1px solid var(--ibaiak-grey);
+      border-radius: calc(var(--height-button) * .46);
+      border-color: currentColor;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &:hover {
+      &:after {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+%button-link {
+  --color: currentColor;
+  --border-color: var(--ibaiak-grey);
+  --bg-hover: var(--ibaiak-grey);
+  --color-hover: var(--black);
+  --font-size: var(--font-size-base);
+  --height: calc(var(--font-size) * 1.8);
+
+  @include basic-a();
+  position: relative;
+  display: inline-block;
+  height: var(--height);
+
+  color: var(--color);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: calc(var(--height) * .46);
+
+  padding: .3em 1em .5em;
+
+  @include font-sans(true);
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: var(--font-size);
+  text-align: center;
+
+  &.__active,
+  &.__linkActive {
+    pointer-events: none;
+  }
+
+  &.__active,
+  &.__linkActive,
+  &:hover {
+    color: var(--color-hover);
+    background-color: var(--bg-hover);
+  }
+}
+
+@mixin button-link() {
+  @extend %button-link;
+}
+
+.button-link {
+  @extend %button-link;
+}

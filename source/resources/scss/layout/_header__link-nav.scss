@@ -1,0 +1,58 @@
+@keyframes example {
+  0%   {opacity: 1;}
+  5%  {opacity: 1;}
+  100%  {opacity: 0;}
+}
+
+.header__link-nav  {
+  --color-hover: var(--assertive);
+
+  position: relative;
+
+  @include basic-a();
+  @include font-sans(true);
+  display: inline-block;
+  line-height: 1;
+  padding: .2em 0 .2em;
+
+  font-size: var(--font-size-nav);
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-text-stroke:1px var(--color);
+  color: transparent;
+
+  margin: 0 .2em;
+
+  transition: color .8s var(--ease-out-quad);
+
+  svg {
+    position: absolute;
+    right: -.3em;
+    top:.3em;
+    width: auto;
+    height: .3em;
+    fill: var(--color);
+  }
+
+  &:after {
+    @include pseudo-element-absolute(attr(data-text));
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    padding: .2em 0 .2em;
+    -webkit-text-stroke:1px var(--color-hover);
+    color: var(--color-hover);
+    opacity: 0;
+  }
+
+  &:hover {
+    --color: var(--color-hover);
+
+    &:after {
+      animation-name: example;
+      animation-duration: 1s;
+      animation-timing-function: var(--ease-out-quad);
+    }
+  }
+}
